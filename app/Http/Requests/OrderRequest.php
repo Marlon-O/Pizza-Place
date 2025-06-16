@@ -22,8 +22,11 @@ class OrderRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'date' => 'required|date',
-            'time' => 'required|date_format:H:i:s',
+            'date' => ['required', 'date'],
+            'time' => ['required', 'date_format:H:i:s'],
+            'order_details' => ['required', 'array', 'min:1'],
+            'order_details.*.pizza_id' => ['required', 'exists:pizzas,pizza_id'],
+            'order_details.*.quantity' => ['required', 'integer', 'min:1'],
         ];
     }
 }
