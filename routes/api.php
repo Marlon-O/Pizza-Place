@@ -15,3 +15,4 @@ Route::apiResource('pizza-types', PizzaTypeController::class);
 Route::apiResource('pizzas', PizzaController::class);
 Route::apiResource('orders', OrderController::class);
 Route::apiResource('order-details', OrderDetailController::class);
+Route::post('orders/{order}/details', [OrderController::class, 'addDetail']);
