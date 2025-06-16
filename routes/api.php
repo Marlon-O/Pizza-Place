@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\DashboardController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\OrderDetailController;
 use App\Http\Controllers\Api\PizzaController;
@@ -16,3 +17,4 @@ Route::apiResource('pizzas', PizzaController::class);
 Route::apiResource('orders', OrderController::class);
 Route::apiResource('order-details', OrderDetailController::class);
 Route::post('orders/{order}/details', [OrderController::class, 'addDetail']);
+Route::get('/dashboard/stats', [DashboardController::class, 'stats']);
