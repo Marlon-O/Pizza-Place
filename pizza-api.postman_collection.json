@@ -1,0 +1,317 @@
+{
+  "info": {
+    "_postman_id": "4f5df3cd-bdbf-47c6-8f91-aaa222e55c09",
+    "name": "Pizza Place API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Postman Collection for Pizza Place API (Pizza Types, Pizzas, Orders, Order Details)"
+  },
+  "item": [
+    {
+      "name": "Pizza Types",
+      "item": [
+        {
+          "name": "Get All Pizza Types",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/pizza-types",
+              "host": ["{{base_url}}"],
+              "path": ["api", "pizza-types"]
+            },
+            "description": "Fetch all pizza types"
+          }
+        },
+        {
+          "name": "Create Pizza Type",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pizza_type_id\": \"bbq_ckn\",\n  \"name\": \"The Barbecue Chicken Pizza\",\n  \"category\": \"Chicken\",\n  \"ingredients\": \"Barbecued Chicken, Red Peppers, Green Peppers, Tomatoes, Red Onions, Barbecue Sauce\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/pizza-types",
+              "host": ["{{base_url}}"],
+              "path": ["api", "pizza-types"]
+            },
+            "description": "Create a new pizza type"
+          }
+        },
+        {
+          "name": "Show Pizza Type",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/pizza-types/bbq_ckn",
+              "host": ["{{base_url}}"],
+              "path": ["api", "pizza-types", "bbq_ckn"]
+            },
+            "description": "Get pizza type by ID"
+          }
+        },
+        {
+          "name": "Update Pizza Type",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pizza_type_id\": \"bbq_ckn\",\n  \"name\": \"Updated Barbecue Chicken Pizza\",\n  \"category\": \"Chicken\",\n  \"ingredients\": \"Barbecue Chicken, Onions, Peppers\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/pizza-types/bbq_ckn",
+              "host": ["{{base_url}}"],
+              "path": ["api", "pizza-types", "bbq_ckn"]
+            },
+            "description": "Update existing pizza type"
+          }
+        },
+        {
+          "name": "Delete Pizza Type",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{base_url}}/api/pizza-types/bbq_ckn",
+              "host": ["{{base_url}}"],
+              "path": ["api", "pizza-types", "bbq_ckn"]
+            },
+            "description": "Delete a pizza type"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pizzas",
+      "item": [
+        {
+          "name": "Get All Pizzas",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/pizzas",
+              "host": ["{{base_url}}"],
+              "path": ["api", "pizzas"]
+            },
+            "description": "Fetch all pizzas"
+          }
+        },
+        {
+          "name": "Create Pizza",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pizza_id\": \"bbq_ckn_m\",\n  \"pizza_type_id\": \"bbq_ckn\",\n  \"size\": \"M\",\n  \"price\": 16.75\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/pizzas",
+              "host": ["{{base_url}}"],
+              "path": ["api", "pizzas"]
+            },
+            "description": "Create a pizza"
+          }
+        },
+        {
+          "name": "Show Pizza",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/pizzas/bbq_ckn_m",
+              "host": ["{{base_url}}"],
+              "path": ["api", "pizzas", "bbq_ckn_m"]
+            },
+            "description": "Fetch pizza by ID"
+          }
+        },
+        {
+          "name": "Update Pizza",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pizza_id\": \"bbq_ckn_m\",\n  \"pizza_type_id\": \"bbq_ckn\",\n  \"size\": \"M\",\n  \"price\": 17.00\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/pizzas/bbq_ckn_m",
+              "host": ["{{base_url}}"],
+              "path": ["api", "pizzas", "bbq_ckn_m"]
+            },
+            "description": "Update a pizza"
+          }
+        },
+        {
+          "name": "Delete Pizza",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{base_url}}/api/pizzas/bbq_ckn_m",
+              "host": ["{{base_url}}"],
+              "path": ["api", "pizzas", "bbq_ckn_m"]
+            },
+            "description": "Delete a pizza"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "Get All Orders",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/orders",
+              "host": ["{{base_url}}"],
+              "path": ["api", "orders"]
+            },
+            "description": "Fetch all orders"
+          }
+        },
+        {
+          "name": "Create Order",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"date\": \"2025-06-16\",\n  \"time\": \"13:00:00\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/orders",
+              "host": ["{{base_url}}"],
+              "path": ["api", "orders"]
+            },
+            "description": "Create a new order"
+          }
+        },
+        {
+          "name": "Show Order",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/orders/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "orders", "1"]
+            },
+            "description": "Fetch order by ID"
+          }
+        },
+        {
+          "name": "Update Order",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"date\": \"2025-06-17\",\n  \"time\": \"14:30:00\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/orders/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "orders", "1"]
+            },
+            "description": "Update an order"
+          }
+        },
+        {
+          "name": "Delete Order",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{base_url}}/api/orders/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "orders", "1"]
+            },
+            "description": "Delete an order"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Order Details",
+      "item": [
+        {
+          "name": "Get All Order Details",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/order-details",
+              "host": ["{{base_url}}"],
+              "path": ["api", "order-details"]
+            },
+            "description": "Fetch all order details"
+          }
+        },
+        {
+          "name": "Create Order Detail",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"order_id\": 1,\n  \"pizza_id\": \"bbq_ckn_m\",\n  \"quantity\": 2\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/order-details",
+              "host": ["{{base_url}}"],
+              "path": ["api", "order-details"]
+            },
+            "description": "Create order detail"
+          }
+        },
+        {
+          "name": "Show Order Detail",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/order-details/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "order-details", "1"]
+            },
+            "description": "Get a single order detail"
+          }
+        },
+        {
+          "name": "Update Order Detail",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"order_id\": 1,\n  \"pizza_id\": \"bbq_ckn_m\",\n  \"quantity\": 3\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/order-details/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "order-details", "1"]
+            },
+            "description": "Update an order detail"
+          }
+        },
+        {
+          "name": "Delete Order Detail",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{base_url}}/api/order-details/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "order-details", "1"]
+            },
+            "description": "Delete an order detail"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://pizza-place.test"
+    }
+  ]
+}
